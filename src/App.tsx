@@ -6,12 +6,11 @@ import {listTodos} from "./graphql/queries";
 import awsExports from "./aws-exports";
 import {withAuthenticator} from "@aws-amplify/ui-react";
 import {ToDoEntity} from "./types";
-import {AppBar, Button, Chip, Grid, IconButton, TextField, Toolbar,} from "@mui/material";
+import {Alert, AppBar, Button, Grid, IconButton, TextField, Toolbar,} from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import DoneIcon from "@mui/icons-material/Done";
 
 Amplify.configure(awsExports);
 
@@ -122,9 +121,8 @@ const App = () => {
         {todos.map((todo, index: number) => (
           <Box key={todo.id} p={0.5} m={2}>
             <Grid container spacing={2}>
-              <Grid item>
-                {" "}
-                <Chip label={todo?.description} deleteIcon={<DoneIcon />} />
+              <Grid xs={12}>
+                <Alert severity="success">Name: {todo.name} | Description: {todo.description}</Alert>
               </Grid>
             </Grid>
           </Box>
