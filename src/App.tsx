@@ -83,8 +83,8 @@ const App = () => {
       </AppBar>
       <Box m={3}>
         <Grid container>
-          <Grid item xs={3} />
-          <Grid item container spacing={3} xs={6}>
+          <Grid item xs={1} lg={4}/>
+          <Grid item container spacing={3} lg={4} xs={10}>
             <Grid item xs={12}>
               <TextField
                 label="Name"
@@ -111,17 +111,17 @@ const App = () => {
               </Button>
             </Grid>
           </Grid>
-          <Grid item xs={3} />
+          <Grid item xs={1} lg={4}/>
         </Grid>
       </Box>
       <Box m={2}>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign:"center" }}>
           Already added todos
         </Typography>
         {todos.map((todo, index: number) => (
           <Box key={todo.id} p={0.5} m={2}>
-            <Grid container spacing={2}>
-              <Grid xs={12}>
+            <Grid container spacing={2} justifyContent="center">
+              <Grid xs={6}>
                 <Alert severity="success">Name: {todo.name} | Description: {todo.description}</Alert>
               </Grid>
             </Grid>
